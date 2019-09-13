@@ -1,4 +1,4 @@
-package tests
+package tests.gui
 
 import geb.junit4.GebReportingTest
 import org.junit.Test
@@ -6,6 +6,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import pageObjects.GebishOrgHomePage
 import pageObjects.TheBookOfGebPage
+import static io.restassured.RestAssured.*
 
 @RunWith(JUnit4)
 class GebishOrgTest extends GebReportingTest {
@@ -23,6 +24,9 @@ class GebishOrgTest extends GebReportingTest {
 
         then:
         at(TheBookOfGebPage)
+
+        // REST
+        get('https://www.google.com').then().log().body()
     }
 
     void openedGebishOrgHomePageAndOpenedManualsMenu() {
