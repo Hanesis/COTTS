@@ -1,0 +1,71 @@
+plugins {
+    id "idea"
+    id "groovy"
+    id "com.energizedwork.webdriver-binaries" version "1.4"
+    id "com.energizedwork.idea-base" version "1.4"
+}
+
+ext {
+    // The drivers we want to use
+    drivers = ["firefox", "chrome", "chromeHeadless"]
+
+    ext {
+        gebVersion = '3.0.1'
+        seleniumVersion = '3.141.59'
+        chromeDriverVersion = '77.0.3865.40'
+        geckoDriverVersion = '0.25.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spock / geb-Spock
+    testCompile "org.gebish:geb-spock:$gebVersion"
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.3-groovy-2.5'
+    testCompile("org.spockframework:spock-core:1.3-groovy2.5") {
+        exclude group: "org.codehaus.groovy"
+    }
+
+    // jUnit
+    testCompile "org.gebish:geb-junit4:$gebVersion"
+
+    // Drivers
+    testCompile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+    testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+}
+
+webdriverBinaries {
+    chromedriver chromeDriverVersion
+    geckodriver geckoDriverVersion
+}
+
+drivers.each { driver ->
+    task "${driver}Test"(type: Test) {
+        group JavaBasePlugin.VERIFICATION_GROUP
+
+        outputs.upToDateWhen { false }  // Always run tests
+
+        systemProperty "geb.build.reportsDir", reporting.file("geb/$name")
+        systemProperty "geb.env", driver
+    }
+}
+
+test {
+    dependsOn drivers.collect { tasks["${it}Test"] }
+    enabled = false
+}
+
+tasks.withType(Test) {
+    maxHeapSize = "1g"
+    jvmArgs '-XX:MaxMetaspaceSize=128m'
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
+tasks.withType(GroovyCompile) {
+    groovyOptions.forkOptions.memoryMaximumSize = '256m'
+}
