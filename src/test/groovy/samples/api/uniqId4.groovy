@@ -10,6 +10,9 @@ class uniqId4 {
     @Test
     void getGoogleBody() {
         given:
+        for (i = 0; i <150; i++) {
+            System.out.println("Hello World")
+        }
         def response = get('http://157.230.77.139:3000/v1/client').then()
                 .assertThat()
                 .statusCode(200)
