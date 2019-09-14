@@ -10,7 +10,7 @@ class HomePage extends Page{
     }
 
     static content = {
-        button { $("a:nth-child(2)") } // JQUERY ?!?!?!?!?!?
+        button { $("a:nth-child(2)") }
     }
 
     void clickOnLoanPageNavigationButton() {
