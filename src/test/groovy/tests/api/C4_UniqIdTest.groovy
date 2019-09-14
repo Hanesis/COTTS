@@ -22,7 +22,6 @@ class C4_UniqIdTest {
             def object = slurper.parseText(response)
             Assert.assertNotEquals(object.body._id, id, "Id for client is not unique");
         }
-
     }
 
     @Test
