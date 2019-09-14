@@ -11,7 +11,7 @@ class C4_UniqIdTest {
     @Test
     void checkUniqId() {
         given:
-        for (i = 0; i <50; i++) {
+        for (def i = 0; i <50; i++) {
             def id = 0
             def response = get('http://157.230.77.139:3000/v1/client').then()
                     .assertThat()
@@ -20,6 +20,7 @@ class C4_UniqIdTest {
                     .asString()
             JsonSlurper slurper = new JsonSlurper()
             def object = slurper.parseText(response)
+            println("response="+response);
             Assert.assertNotEquals(object.body._id, id, "Id for client is not unique");
         }
     }

@@ -13,16 +13,27 @@ class C7_PaymentCalculatorTest implements Helper{
     @Test
     void checkCalculator() {
         given:
-         def id = getClientId();
-         println("id="+id);
-         def response = given().headers("Content-Type", "application/json").body("{\"loanAmount\":60000,\"loanPeriod\":20,\"clientId\":\"$id\"}").put('http://157.230.77.139:3000/v1/client').then()
-                 .assertThat()
-                 .statusCode(200)
-            .extract()
-            .asString()
-        JsonSlurper slurper = new JsonSlurper()
-        def object = slurper.parseText(response)
-        println("response="+response);
-        Assert.assertNotEquals(object.body.payment, id, "Id for client is not uniq");
+         int initLoanAmount = 10000;
+         int initloanPeriod = 10;
+        def id = getClientId();
+        for (def a = 0; a <11; a++) {
+            for (def i = 0; i < 18; i++) {
+                def response = given().headers("Content-Type", "application/json").body("{\"loanAmount\":$initLoanAmount,\"loanPeriod\":$initloanPeriod,\"clientId\":\"$id\"}").put('http://157.230.77.139:3000/v1/client').then()
+                        .assertThat()
+                        .statusCode(200)
+                        .extract()
+                        .asString()
+                JsonSlurper slurper = new JsonSlurper()
+                def object = slurper.parseText(response)
+                println("response=" + response);
+                println("initLoanAmount=" + initLoanAmount);
+                println("initloanPeriod=" + initloanPeriod);
+                int expectedPayment = (initLoanAmount / initloanPeriod)
+                Assert.assertEquals(object.payment, expectedPayment);
+                initLoanAmount = initLoanAmount + 5000;
+            }
+            initloanPeriod = initloanPeriod + 10;
+        }
+
     }
 }
