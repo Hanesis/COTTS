@@ -20,7 +20,6 @@ class C8_LoanCalculatorPageSlidersAndTitleTest extends GebReportingTest {
         openedLoanCalculatorPage()
 
         when:
-        println()
 
         then:
         println()

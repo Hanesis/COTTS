@@ -14,4 +14,12 @@ class LoanCalculatorPage extends Page {
         loanAmountSlider {  }
         loanDurationSlider {  }
     }
+
+    void doSmth() {
+        interact {
+            clickAndHold($(".MuiSlider-root"))
+            moveByOffset(150,0)
+            release()
+        }
+    }
 }
