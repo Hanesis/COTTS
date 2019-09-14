@@ -10,5 +10,8 @@ class LoanCalculatorPage extends Page {
         title == "Půjčka - kalkulátor"
     }
 
-
+    static content = {
+        loanAmountSlider {  }
+        loanDurationSlider {  }
+    }
 }
