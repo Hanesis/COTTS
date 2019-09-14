@@ -9,4 +9,17 @@ class LoanCalculatorPage extends Page {
     static at = {
         title == "Půjčka - kalkulátor"
     }
+
+    static content = {
+        captcha { $(".jss163") }
+        buttonToContinue(required: false) {$(".MuiButton-label")}
+    }
+
+    void clickOnCaptcha() {
+        captcha.click()
+    }
+
+    void clickOnContinueButton() {
+        buttonToContinue.click()
+    }
 }

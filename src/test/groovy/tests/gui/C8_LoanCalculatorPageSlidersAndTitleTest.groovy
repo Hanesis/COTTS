@@ -30,6 +30,12 @@ class C8_LoanCalculatorPageSlidersAndTitleTest extends GebReportingTest {
 
         then:
         loanCalculatorPage = at(LoanCalculatorPage)
+
+        when:
+        loanCalculatorPage.clickOnCaptcha()
+
+        then:
+        loanCalculatorPage.clickOnContinueButton()
     }
 
     void openedLoanCalculatorPage() {
