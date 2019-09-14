@@ -9,7 +9,7 @@ import org.junit.runners.JUnit4
 import tools.Helper
 
 @RunWith(JUnit4)
-class HomeAndLoanPagesAccessibilityTest extends GebReportingTest implements Helper{
+class C5_HomeAndLoanPagesAccessibilityTest extends GebReportingTest implements Helper{
 
     private HomePage homePage
     private LoanPage loanPage
