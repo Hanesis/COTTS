@@ -10,7 +10,7 @@ class HomePage extends Page{
     }
 
     static content = {
-        button { $("a", title: "Sjednat půjčku") }
+        button { $("a:nth-child(2)") } // JQUERY ?!?!?!?!?!?
     }
 
     void clickOnButton() {
