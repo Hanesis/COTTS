@@ -18,15 +18,10 @@ class C5_Validation  implements Helper{
         def response = given().headers("Content-Type", "application/json")
                 .body( "{\"loanAmount\":$initLoanAmount,\"loanPeriod\":$initloanPeriod,\"clientId\":\"$id\"}").put('http://157.230.77.139:3000/v1/client').then()
                 .assertThat()
-                .statusCode(200)
+                .statusCode(400)
                 .extract()
                 .asString()
         JsonSlurper slurper = new JsonSlurper()
         def object = slurper.parseText(response)
-        println("response=" + response);
-        println("initLoanAmount=" + initLoanAmount);
-        println("initloanPeriod=" + initloanPeriod);
-
-
     }
 }
