@@ -20,8 +20,7 @@ class C4_UniqIdTest {
                     .asString()
             JsonSlurper slurper = new JsonSlurper()
             def object = slurper.parseText(response)
-            Assert.assertNotEquals(object.body._id, id);
-            println(object.body._id)
+            Assert.assertNotEquals(object.body._id, id, "Id for client is not unique");
         }
 
     }
