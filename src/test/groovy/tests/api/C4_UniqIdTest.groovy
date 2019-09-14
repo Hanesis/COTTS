@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 import static io.restassured.RestAssured.get
 
 // Must be run via JUNIT not via Gradle Tasks - Theyre made for GEB tests
-class uniqId4 {
+class C4_UniqIdTest {
     @Test
     void checkUniqId() {
         given:
