@@ -17,19 +17,22 @@ class C8_LoanCalculatorPageSlidersAndTitleTest extends GebReportingTest {
     @Test
     void openLoanCalculatorMoveSomeSlidersAround() {
         given:
-        openedLoanCalculatorPage()
+        to(HomePage)
 
         when:
+        loanPage = to(LoanPage)
 
         then:
-        println()
+        at(LoanPage)
 
+        when:
+        openedLoanCalculatorPage()
+
+        then:
+        loanCalculatorPage = at(LoanCalculatorPage)
     }
 
     void openedLoanCalculatorPage() {
-        to(HomePage)
-        loanPage = to(LoanPage)
         loanPage.clickOnLoanCalculatorPageNavigationButton()
-        loanCalculatorPage = at(LoanCalculatorPage)
     }
 }

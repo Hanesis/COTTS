@@ -1,7 +1,6 @@
 package tools
 
 import groovy.json.JsonSlurper
-import org.junit.Assert
 
 import static io.restassured.RestAssured.get
 
