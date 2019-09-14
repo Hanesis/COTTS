@@ -3,7 +3,12 @@ package geb.pageObjects
 import geb.Page
 
 class LoanCalculatorPage extends Page {
+
+    static url = "/loan-calculator"
+
     static at = {
-        title == "Spočítejte si svou výhodnou půjčku"
+        title == "Půjčka - kalkulátor"
     }
+
+
 }

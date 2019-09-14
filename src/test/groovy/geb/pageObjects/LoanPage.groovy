@@ -4,6 +4,8 @@ import geb.Page
 
 class LoanPage extends Page {
 
+    static url = "/cashloan"
+
     static at = {
         title == "Banka - sjednání půjčky"
         loanButton
@@ -13,7 +15,7 @@ class LoanPage extends Page {
         loanButton { $(".MuiButton-label") }
     }
 
-    void clickOnLoanButton() {
+    void clickOnLoanCalculatorPageNavigationButton() {
         loanButton.click()
     }
 

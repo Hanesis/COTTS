@@ -32,6 +32,7 @@ environments {
 
     // See: http://code.google.com/p/selenium/wiki/ChromeDriver
     chromeHeadless {
+        atCheckWaiting = 1
         driver = {
             ChromeOptions o = new ChromeOptions()
             o.addArguments('headless')

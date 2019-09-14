@@ -19,7 +19,7 @@ class C5_HomeAndLoanPagesAccessibilityTest extends GebReportingTest {
         homePage = to(HomePage)
 
         when:
-        homePage.clickOnButton()
+        homePage.clickOnLoanPageNavigationButton()
 
         then:
         loanPage = at(LoanPage)

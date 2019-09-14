@@ -13,7 +13,7 @@ class HomePage extends Page{
         button { $("a:nth-child(2)") } // JQUERY ?!?!?!?!?!?
     }
 
-    void clickOnButton() {
+    void clickOnLoanPageNavigationButton() {
         button.click()
     }
 
