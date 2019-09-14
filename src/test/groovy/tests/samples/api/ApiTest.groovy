@@ -1,4 +1,4 @@
-package tests.api
+package tests.samples.api
 
 import org.junit.jupiter.api.Test
 import static io.restassured.RestAssured.*
@@ -9,7 +9,10 @@ class ApiTest {
     @Test
     void getGoogleBody() {
         given:
-        get('https://www.google.com').then().log().body()
+        get('https://www.google.com').
+                then().
+                log().
+                body()
     }
 
 }

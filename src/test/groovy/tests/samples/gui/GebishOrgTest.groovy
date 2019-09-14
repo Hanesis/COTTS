@@ -1,4 +1,4 @@
-package tests.gui
+package tests.samples.gui
 
 import geb.junit4.GebReportingTest
 import org.junit.Test
