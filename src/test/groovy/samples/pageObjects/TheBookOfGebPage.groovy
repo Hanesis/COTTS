@@ -1,4 +1,4 @@
-package pageObjects
+package samples.pageObjects
 
 import geb.Page
 

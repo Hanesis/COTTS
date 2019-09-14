@@ -1,11 +1,11 @@
-package tests.samples.gui
+package samples.gui
 
 import geb.junit4.GebReportingTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import pageObjects.GebishOrgHomePage
-import pageObjects.TheBookOfGebPage
+import samples.pageObjects.GebishOrgHomePage
+import samples.pageObjects.TheBookOfGebPage
 
 @RunWith(JUnit4)
 class GebishOrgTest extends GebReportingTest {

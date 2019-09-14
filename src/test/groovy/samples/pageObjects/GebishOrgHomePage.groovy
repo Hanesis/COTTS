@@ -1,7 +1,7 @@
-package pageObjects
+package samples.pageObjects
 
 import geb.Page
-import modules.ManualsMenuModule
+import samples.modules.ManualsMenuModule
 
 class GebishOrgHomePage extends Page {
 
