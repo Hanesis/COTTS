@@ -28,10 +28,11 @@ class C7_PaymentCalculatorTest implements Helper{
                 println("response=" + response);
                 println("initLoanAmount=" + initLoanAmount);
                 println("initloanPeriod=" + initloanPeriod);
-                int expectedPayment = (initLoanAmount / initloanPeriod)
+                int expectedPayment = Math.round(initLoanAmount / initloanPeriod)
                 Assert.assertEquals(object.payment, expectedPayment);
                 initLoanAmount = initLoanAmount + 5000;
             }
+            initLoanAmount = 10000;
             initloanPeriod = initloanPeriod + 10;
         }
 
