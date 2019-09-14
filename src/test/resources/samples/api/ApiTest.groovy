@@ -9,10 +9,12 @@ class ApiTest {
     @Test
     void getGoogleBody() {
         given:
-        get('https://www.google.com').
+        def response = get('https://www.google.com').
                 then().
                 log().
                 body()
+
+        println respos
     }
 
 }

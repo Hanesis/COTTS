@@ -26,6 +26,7 @@ environments {
 
     // See: http://code.google.com/p/selenium/wiki/ChromeDriver
     chrome {
+        atCheckWaiting = 1
         driver = { new ChromeDriver() }
     }
 
@@ -47,7 +48,7 @@ environments {
 
 }
 
-baseUrl = "http://gebish.org" // TODO: this needs to be changed when actually testing
+baseUrl = "http://157.230.77.139:3000/" // TODO: this needs to be changed when actually testing
 requirePageAtCheckers = true
 atCheckWaiting = true
 

@@ -1,4 +1,4 @@
-package samples.api
+package tests.api
 
 import groovy.json.JsonSlurper
 import org.junit.Assert
