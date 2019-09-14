@@ -16,4 +16,8 @@ class LoanPage extends Page {
     void clickOnLoanButton() {
         loanButton.click()
     }
+
+    boolean isLoanButtonVisible() {
+        loanButton.isDisplayed()
+    }
 }
